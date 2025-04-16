@@ -1,0 +1,64 @@
+# Dependencies
+/node_modules
+/package-lock.json
+/yarn.lock
+
+# Build output
+/dist
+/build
+/.next
+/out
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+/coverage
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Debug files
+debug.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Puppeteer screenshots and other scraper outputs
+*.png
+*.jpg
+*.jpeg
+*.csv
+*.xlsx
+
+# TypeScript cache
+*.tsbuildinfo
