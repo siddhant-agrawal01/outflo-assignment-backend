@@ -59,7 +59,6 @@ async function scrapeLinkedInLeads() {
       "--disable-setuid-sandbox",
       "--disable-notifications",
     ],
-    protocolTimeout: 60000
   });
 
   const page = await browser.newPage();
@@ -214,7 +213,6 @@ async function scrapeLinkedInLeads() {
       .catch(() => console.log("Page seems to have content, continuing..."));
 
     type LeadResult = {
-      summary: string;
       name: string;
       job_title: string;
       location: string;
@@ -265,7 +263,6 @@ async function scrapeLinkedInLeads() {
         profile_image_url: string;
         profile_url: string;
         scraped_at: string;
-        summary: any;
       }[] = [];
 
       // Try different possible item selectors (more comprehensive list)
@@ -410,7 +407,6 @@ async function scrapeLinkedInLeads() {
             profile_image_url: profileImageUrl || "",
             profile_url: profileUrl || "",
             scraped_at: new Date().toISOString(),
-            summary: "", // Placeholder for summary
           });
         }
       }
@@ -420,9 +416,7 @@ async function scrapeLinkedInLeads() {
 
     console.log(`Scraped ${leads.length} leads:`);
     console.log(leads.slice(0, 3)); // Just log first 3 for brevity
-    for (let lead of leads) {
-      lead.summary = await generateSummary(lead);
-    }
+
     if (leads.length > 0) {
       // Update the Lead model to include the profile_image_url and profile_url fields
       await Lead.insertMany(leads);

@@ -1,11 +1,35 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const leadSchema = new mongoose.Schema({
-  name: String,
-  job_title: String,
-  company: String,
-  location: String,
-  scraped_at: { type: Date, default: Date.now },
+const LeadSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  job_title: {
+    type: String,
+  },
+  company: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  profile_image_url: {
+    type: String,
+    default: "",
+  },
+  profile_url: {
+    type: String,
+    default: "",
+  },
+  summary: {
+    type: String,
+    default: "", // new field added
+  },
+  scraped_at: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-export const Lead = mongoose.model('Lead', leadSchema);
+export const Lead = mongoose.model("Lead", LeadSchema);
