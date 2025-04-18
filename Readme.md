@@ -69,34 +69,17 @@ GEMINI_API_KEY=YOUR-KEY
    ```bash
    npm run dev
    ```
-
-## 🔧 Troubleshooting
-
-### Puppeteer Timeouts
-
-If you encounter Puppeteer timeout errors:
-
-```bash
-ProtocolError: Page.captureScreenshot timed out
+## For Scraping 
+- Setup environment variables
+  ```
+LINKEDIN_USERNAME=your_linkedin_email
+LINKEDIN_PASSWORD=your_linkedin_password
 ```
+1. Run the scraper file :
 
-Update your Puppeteer configuration in `scraper/server.ts`:
-
-```typescript
-const browser = await puppeteer.launch({
-  headless: false,
-  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-notifications"],
-  protocolTimeout: 60000, // Increase timeout to 60 seconds
-});
-```
-
-### Mongoose Schema Validation
-
-Ensure all enum values match the schema definition exactly. For Campaign status, use uppercase values:
-
-- `ACTIVE` (not `active`)
-- `INACTIVE` (not `inactive`)
-- `DELETED` (not `deleted`)
+   ```bash
+   npx ts-node scraper/scraper.ts
+   ```
 
 ## 📝 API Documentation
 
@@ -111,10 +94,6 @@ Ensure all enum values match the schema definition exactly. For Campaign status,
 ### Leads
 
 - **GET /leads** - Get all leads
-
-### LinkedIn Scraping
-
-- **POST /scrape/linkedin** - Start LinkedIn scraping job
 
 ## 📄 License
 
