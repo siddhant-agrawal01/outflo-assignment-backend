@@ -34,6 +34,7 @@ PORT=5000
 MONGODB_URI=mongodb://localhost:27017/outflo
 LINKEDIN_USERNAME=your_linkedin_email
 LINKEDIN_PASSWORD=your_linkedin_password
+GEMINI_API_KEY=YOUR-KEY
 ```
 
 ### Installation
