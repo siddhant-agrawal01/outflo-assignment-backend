@@ -71,7 +71,7 @@ GEMINI_API_KEY=YOUR-KEY
    ```
 ## For Scraping 
 - Setup environment variables
-  ```
+```
 LINKEDIN_USERNAME=your_linkedin_email
 LINKEDIN_PASSWORD=your_linkedin_password
 ```
