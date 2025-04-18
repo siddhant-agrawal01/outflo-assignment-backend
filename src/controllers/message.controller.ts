@@ -41,7 +41,6 @@ export const generateMessage = async (req: Request, res: Response) => {
       generatedMessage += chunk.text;
     }
 
-    // Save to MongoDB
     const newMessage = new Message({
       name,
       job_title,

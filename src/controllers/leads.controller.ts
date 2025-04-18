@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Lead } from "../models/Lead";
 
-// Get all leads
 export const getLeads = async (req: Request, res: Response) => {
   try {
     const leads = await Lead.find().sort({ scraped_at: -1 });

@@ -1,56 +1,30 @@
-// // backend/src/models/Campaign.ts
-// import mongoose from "mongoose";
 
-// const campaignSchema = new mongoose.Schema(
-//   {
-//     name: { type: String, required: true },
-//     description: { type: String },
-//     status: {
-//       type: String,
-//       enum: ["ACTIVE", "INACTIVE", "DELETED"],
-//       default: "ACTIVE",
-//     },
-//     leads: [
-//       {
-//         name: String,
-//         job_title: String,
-//         company: String,
-//         location: String,
-//         summary: String,
-//       },
-//     ],
-//     accountIds: [String],
-//   },
-//   { timestamps: true }
-// );
+import mongoose, { Schema, Document } from "mongoose";
 
-// const Campaign = mongoose.model("Campaign", campaignSchema);
-// export default Campaign;
-// backend/src/models/Campaign.ts
-import mongoose from "mongoose";
+export interface ICampaign extends Document {
+  name: string;
+  description: string;
+  status: "ACTIVE" | "INACTIVE" | "DELETED";
+  leads: string[];       
+  accountIDs: string[]; 
+}
 
-const campaignSchema = new mongoose.Schema(
+const CampaignSchema: Schema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    description: { type: String },
+    description: { type: String, default: "" },
     status: {
       type: String,
       enum: ["ACTIVE", "INACTIVE", "DELETED"],
       default: "ACTIVE",
     },
-    leads: [
-      {
-        name: String,
-        job_title: String,
-        company: String,
-        location: String,
-        summary: String,
-      },
-    ],
-    accountIds: [String],
+    leads: { type: [String], default: [] },
+    accountIDs: { type: [String], default: [] },
   },
   { timestamps: true }
 );
 
-const Campaign = mongoose.model("Campaign", campaignSchema);
-export default Campaign;
+export const Campaign = mongoose.model<ICampaign>(
+  "Campaign",
+  CampaignSchema
+);
