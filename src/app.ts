@@ -8,7 +8,7 @@ import leadsRoutes from "./routes/leads";
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://your-frontend-domain.vercel.app"],
+  origin: ["http://localhost:5173", "https://outflow-client-frontend.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
